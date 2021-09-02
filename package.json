@@ -1,0 +1,17 @@
+{
+  "name": "last-fm-artists-by-year",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "json2csv": "^5.0.6",
+    "moment": "^2.29.1",
+    "node-fetch": "^3.0.0"
+  }
+}
