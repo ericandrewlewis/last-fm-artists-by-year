@@ -51,7 +51,33 @@ const getTopArtistsForYears = async (startYear, endYear) => {
   }
 }
 
+const getTopArtistsAllTime = async () => {
+  const artists = await getTopArtists(
+    'ericandrewlewis',
+    /* from */ unixTimestampSecsForDate(`2012-01-01`),
+    /* to */ unixTimestampSecsForDate(`2022-07-04`),
+  );
+  debugger;
+  const fields = ['name', 'playcount'];
+  const opts = { fields };
+
+  try {
+    const csv = parse(artists, opts);
+    fs.writeFile(
+      path.join(
+        __dirname,
+        'output',
+        `all-time.csv`
+      ),
+      csv
+    );
+  } catch (err) {
+    console.error(err);
+  }
+}
+
 (async () => {
-  await getTopArtistsForYears(2012, 2021);
+  await getTopArtistsAllTime();
+  // await getTopArtistsForYears(2012, 2021);
 })();
 
